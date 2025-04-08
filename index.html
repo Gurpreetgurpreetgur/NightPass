@@ -98,7 +98,10 @@
         <H3>Fill Your Details Below </H3>
         <H3>(For Hosteler Girl Students Only)</H3>
         
-        <form id="bookForm" onsubmit="return handleSubmit(event)">
+        <!--<form id="bookForm" onsubmit="return handleSubmit(event)">  -->
+
+            <form id="bookForm" enctype="multipart/form-data" onsubmit="return handleSubmit(event)">
+                <!-- Mandatory Fields -->
             <!-- Mandatory Fields -->
             <div class="form-group">
                 <label for="Name">Name: <span class="required">*</span></label>
@@ -159,7 +162,7 @@
             const UID = document.getElementById('UID').value;
             const Hostel = document.getElementById('Hostel').value;
             const Contact = document.getElementById('Contact').value;
-            const file = document.getElementById('file').value;
+            const file = document.getElementById('file').files[0];
 
              // Get the current date and time (Automatically from the system)
              const now = new Date();
@@ -171,7 +174,7 @@
 
            
             // Apps Script Web App URL
-            const scriptUrl = "https://script.google.com/macros/s/AKfycbzNJdox4M3_1OedWxpUit1RKaeS8cMgOaby-LwXdz7ZuneWmkQ2VUMJ1jRhTKBUIFXMIw/exec";
+            const scriptUrl = "https://script.google.com/macros/s/AKfycbzV3xYOA1PxjPvYt13EullwKvPI0I-6auKRAKmDkozwjTcTfRhAfQ2-BxymqlDYmMnASg/exec";
 
             // Create a FormData object
             const formData = new FormData();
@@ -180,7 +183,7 @@
             formData.append("UID", UID);
             formData.append("Hostel", Hostel);
             formData.append("Contact", Contact);
-            formData.append("file", file);
+            formData.append("file", file); 
             
            
 
